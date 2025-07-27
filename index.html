@@ -1,0 +1,121 @@
+
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MOS PRODUCT</title>
+    <style>
+        html, body {
+            margin: 0;
+            height: 100%;
+            overflow: hidden;
+            font-family: Arial, sans-serif;
+        }
+        body {
+            display: flex;
+        }
+        .sidebar {
+            width: 250px;
+            background: #2C3E50;
+            color: white;
+            padding: 20px 0;
+            display: flex;
+            flex-direction: column;
+            height: 100vh;
+        }
+        .sidebar h2 {
+            padding-left: 20px;
+        }
+        .sidebar a {
+            color: white;
+            text-decoration: none;
+            padding: 12px 20px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background 0.2s ease;
+        }
+        .sidebar a:hover {
+            background: #34495E;
+        }
+        .sidebar img.icon {
+            width: 24px;
+            height: 24px;
+            object-fit: contain;
+        }
+        .content {
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            background: #ECF0F1;
+            height: 100vh;
+            overflow: hidden;
+        }
+        .welcome {
+            text-align: center;
+        }
+        .welcome img {
+            max-width: 400px;
+            margin-bottom: 20px;
+        }
+        iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="sidebar">
+        <h2>MOS PRODUCT</h2>
+	<a onclick="loadApp('https://chat.openai.com/g/g-abc123456789mos')">
+            <img class="icon" src="https://chat.openai.com/favicon.ico" alt="My-GPT"> MOS-All Product
+        </a>
+        <a onclick="loadApp('https://chat.openai.com/g/g-abc123456789melag')">
+            <img class="icon" src="https://github.com/MOSolution/Product/blob/main/assets/img/Logo_MELAG_trans.png?raw=true" alt="MELAG"> MELAG - KSNK
+        </a>
+        <a onclick="loadApp('https://chat.openai.com/g/g-abc123456789schwind')">
+            <img class="icon" src="https://github.com/MOSolution/Product/blob/main/assets/img/Logo_trans_Schwind.png?raw=true" alt="SCHWIND"> SCHWIND - Lasik
+        </a>
+        <a onclick="loadApp('https://chat.openai.com/g/g-abc123456789bvi')">
+            <img class="icon" src="https://github.com/MOSolution/Product/blob/main/assets/img/bvi-logo_trans.png?raw=true" alt="BVI"> BVI - Phaco
+        </a>
+        <a onclick="loadApp('https://chat.openai.com/g/g-abc123456789cso')">
+            <img class="icon" src="https://github.com/MOSolution/Product/blob/main/assets/img/logo-CSO_trans.png?raw=true" alt="CSO"> CSO - Sinh hiển vi
+        </a>
+        <a onclick="loadApp('https://chat.openai.com/g/g-abc123456789famed')">
+            <img class="icon" src="https://github.com/MOSolution/Product/blob/main/assets/img/Logo_trans_FAMED.png?raw=true" alt="FAMED"> FAMED - Bàn, Đèn mổ
+        </a>
+        <a onclick="loadApp('https://chat.openai.com/g/g-abc123456789moptim')">
+            <img class="icon" src="https://github.com/MOSolution/Product/blob/main/assets/img/Logo_trans_Moptim.png?raw=true" alt="MOPTIM"> MOPTIM - Phụ trợ
+        </a>
+        
+    </div>
+    <div class="content" id="contentContainer">
+        <div class="welcome" id="welcomeScreen">
+            <img src="https://c1nguyendu.pgdcujut.edu.vn/wp-content/uploads/2022/07/nhung-hinh-nen-powerpoint-mo-dau-dep-va-an-tuong-nhat-670712.jpg" alt="Welcome Image">
+            <h2>Welcome to MOS team</h2>
+            <p>Chọn một ứng dụng từ danh sách bên trái để bắt đầu làm việc.</p>
+        </div>
+        <iframe id="appFrame" src=""></iframe>
+    </div>
+    <script>
+        function loadApp(url) {
+            document.getElementById('welcomeScreen').style.display = 'none';
+            let frame = document.getElementById('appFrame');
+            if (url.includes('google') || url.includes('docs')) {
+                frame.src = url;
+                frame.style.display = 'block';
+            } else {
+                window.open(url, '_blank');
+            }
+        }
+    </script>
+</body>
+</html>
